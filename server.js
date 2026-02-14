@@ -50,8 +50,21 @@ const server = serve({
                         continue;
                     }
 
+                    // Determine subfolder based on extension
+                    let subfolder = "others";
+                    if (["jpg", "jpeg", "png"].includes(ext)) {
+                        subfolder = "images";
+                    } else if (["doc", "docx", "rtf", "pdf"].includes(ext)) {
+                        subfolder = "documents";
+                    }
+
+                    const targetDir = join(UPLOAD_DIR, subfolder);
+                    if (!existsSync(targetDir)) {
+                        mkdirSync(targetDir, { recursive: true });
+                    }
+
                     // Requirement 8: Retain name
-                    const filePath = join(UPLOAD_DIR, file.name);
+                    const filePath = join(targetDir, file.name);
                     await Bun.write(filePath, file);
 
                     // Requirement 4: Virus scan (Mock logic)
