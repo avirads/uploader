@@ -11,6 +11,7 @@ A premium, high-performance file uploader built with **Bun** and the **Uppy** fr
   - Verification of allowed file types: `JPG`, `PNG`, `DOC`, `DOCX`, `RTF`, `PDF`.
   - Individual file limit: **10 MB**.
   - Bulk upload limit: **500 MB**.
+- **Automatic Categorization**: Files are automatically sorted into `images/` and `documents/` subfolders based on their type.
 - **Minimalist Design**: Sleek dark theme with custom toast notifications.
 
 ## 🛠️ Quick Start
